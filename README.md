@@ -8,15 +8,17 @@
 
 ## Download
 
-Get **SenkoFX-Setup-1.7.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
+Get **SenkoFX-Setup-1.7.1.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
 
 1. Close After Effects.
-2. Unzip, run `SenkoFX-Setup-1.7.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
+2. Unzip, run `SenkoFX-Setup-1.7.1.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
 3. Open After Effects and look under **Effect > Senko FX**.
 
 Windows x64, any After Effects version that loads `Common\Plug-ins\7.0\MediaCore`. CPU only, so it runs on any GPU or none. 8, 16 and 32 bpc, multi-frame rendering.
 
-Manual install: copy the .aex files from `SenkoFX-plugins-1.7.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+**Auto update:** from 1.7.1 on, Senko FX keeps itself up to date. A Windows scheduled task ("Senko FX Updater") checks this repo's latest release at logon and every 3 hours, and installs a newer version in the background while After Effects is closed. To turn it off, set the DWORD `AutoUpdate` to `0` under `HKLM\Software\Senko FX`, or disable the task in Task Scheduler.
+
+Manual install: copy the .aex files from `SenkoFX-plugins-1.7.1.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
 
 ## Effects
 
@@ -62,6 +64,10 @@ Tips: Mosh Melt Cuts needs a precomp that holds both clips (it looks for the cut
 | ![Prism Flow](images/prism-flow.png) | ![Kaleido](images/kaleido.png) |
 | ![Glitch Window](images/glitch-window.png) | ![Speed Burst](images/speed-burst.png) |
 | ![Prism Shards](images/prism-shards.png) | ![Light Leak](images/light-leak.png) |
+
+## What's new in 1.7.1
+
+- Senko FX now updates itself. Install 1.7.1 once and new versions arrive automatically.
 
 ## What's new in 1.7.0
 
