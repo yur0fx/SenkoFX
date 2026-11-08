@@ -1,20 +1,22 @@
 # Senko FX
 
-21 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions and one-frame beat hits. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+29 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions and one-frame beat hits. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+
+![New in 1.7.0: each new effect next to the edit it was matched to](images/new-in-1.7.0.png)
 
 ![Senko FX effects](images/effect-only-all-21.png)
 
 ## Download
 
-Get **SenkoFX-Setup-1.6.5.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
+Get **SenkoFX-Setup-1.7.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
 
 1. Close After Effects.
-2. Unzip, run `SenkoFX-Setup-1.6.5.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
+2. Unzip, run `SenkoFX-Setup-1.7.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
 3. Open After Effects and look under **Effect > Senko FX**.
 
 Windows x64, any After Effects version that loads `Common\Plug-ins\7.0\MediaCore`. CPU only, so it runs on any GPU or none. 8, 16 and 32 bpc, multi-frame rendering.
 
-Manual install: copy the .aex files from `SenkoFX-plugins-1.6.5.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+Manual install: copy the .aex files from `SenkoFX-plugins-1.7.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
 
 ## Effects
 
@@ -24,7 +26,7 @@ Manual install: copy the .aex files from `SenkoFX-plugins-1.6.5.zip` to `C:\Prog
 | Senko Kaleido | Kaleidoscope mirrors with an endless zoom tunnel; Spin turns the tube so the pattern keeps changing; rainbow rings ride outward | Mode (Kaleidoscope, Mirror Tiles, Spiral, Fractal Bloom), Segments, Centre (what gets mirrored), Spin, Zoom, Tunnel + Tunnel Speed, Twist, Psychedelic Colour, Rainbow Rings, Glow |
 | Senko Smear | Reads the layer's own motion. Streak (brushed smear behind the subject), Multiples (repeated copies), Afterimage (tinted echoes) | Mode, Smear Length, Brush Lines, Copies, Tint, Trail Glow, Skip Held Frames (works on twos/threes), Show Motion (debug) |
 | Senko Cut Kit | 12 transitions on one Progress slider: Slice, Zoom Warp, RGB Tear, Pixel Stretch, Ink Bleed, Shards, Spin, Block Glitch, Iris Ring, Whip, Pixelate, Burn | Style, Progress (keyframe 0 -> 100), Transition In, Direction, Centre, Pieces, Edge Colour/Glow, Motion Blur |
-| Senko Mosh | Datamosh with no re-encoding. Melt Cuts finds cuts by itself and pushes the old shot with the new shot's motion, healing in patches; Bloom repeats one moment's motion | Mode, Mosh Length, Cut Sensitivity, Block Size, Recovery, Push, Block Glitches, Colour Smear |
+| Senko Mosh | Datamosh with no re-encoding. Melt Cuts finds cuts by itself and pushes the old shot with the new shot's motion, healing in patches; Bloom repeats one moment's motion; Whole Clip (new in 1.7) is a regular datamosh on any clip, no cut needed | Mode, Mosh Length, Key Offset, Cut Sensitivity, Block Size, Recovery, Push, Block Glitches, Colour Smear |
 | Senko One Framer | Single-frame hits for the beat: Invert, Flash White, Colour Flash, RGB Jolt, Zoom Punch, Shake Jolt, Red Negative, Posterize Pop, Mirror Flip, Glitch Slices, Blow Out, Neon Edges, Hue Shift (1.5), or Random Each Hit; Extra Kick adds a zoom + colour split on top | Hit Look, Strength, Fire (whole layer = put it on a 1-frame adjustment layer; Every N Frames; Random Hits), Hit Length, Colour, Amount, Direction |
 | Senko Glitch Window | Glowing glitch boxes over a spot (eyes, face): each box shows a displaced, zoomed, over-exposed copy of what is under it, with RGB split, scanlines, outline, glow; re-rolls every N frames | Look (Rainbow Burn, Acid Green, Inverted, Posterize, Thermal, Clean Copy), Centre, Windows, Width/Height, Spread, Displace, Zoom In, RGB Split, Scanlines, Outline, Glow, Re-glitch Every |
 | Senko Pixel Dust | The layer breaks into dithered pixels that peel off and drift away as glowing dots, with a crunchy 8-bit band at the edge. Keyframe Dissolve 0 -> 100 | Dissolve, Direction, Pixel Size, Pixel Band, Drift, Swirl, Shrink, Extra Sparkle, Dot Colour (Keep, Cyan Pop, Hot Pink, Rainbow, Custom), Colour Levels, Dither, Glow |
@@ -41,9 +43,17 @@ Manual install: copy the .aex files from `SenkoFX-plugins-1.6.5.zip` to `C:\Prog
 | Senko Light Leak | Drifting film-burn leaks from the edges, anamorphic flare streaks pulled from highlights, soft bokeh orbs | Leak, Leak Colours (Red Burn, Pink Sunset, Gold, Cyan Pink, Rainbow, Custom), Leak Size, Drift Speed, From, Burn Out, Flicker, Streaks / Length / Threshold / Colour, Bokeh / Size / Count |
 | Senko Prism Shards | The picture cracks into glass: shards refract shifted, zoomed, tilted copies with colour split, facet shine and rainbow edges; can explode outward | Crack Pattern (Impact from Centre, Crystal Cells), Shard Size, Centre, Coverage, Explode (keyframe), Refraction, Zoom Spread, Twist, Colour Split, Facet Shine, Edge Light / Width, Rainbow Edges, Glow, Re-crack Every |
 | Senko Tile Shift | The picture breaks into square tiles that slide, zoom, flip, flash and drop out, re-rolling every few frames, with gaps and glowing outlines | Tile Size, Tile Shape, Tiles Affected, Re-roll Every, Shift, Zoom Spread, Flip Chance, Dropout, Brightness / Colour Jumps, Gaps + colour, Tile Outline, Glow |
+| Senko Block Glitch (new in 1.7) | Big screen-glitch cells: some cells flash a flat neon colour, some turn into RGB LCD stripes, some go wavy; Grid Slice mode slides row bands sideways, drains the colour except reds and draws a thin grid (0:00 and 0:04.6 of the edit) | Mode (Colour Blocks, Grid Slice), Columns, Rows, Cells Affected, Solid / Stripe / Wavy mix, Re-roll Every, Stripe Width, Stripes Everywhere, Wave Amount, Darken, Grid Lines, Row Slide, Keep Reds |
+| Senko Chrome Relief (new in 1.7) | The picture turns into embossed chrome: brightness becomes height, lit with shine, dark creases and a sharpened edge, optional sideways wave (0:00.3-0:01) | Depth, Relief Size, Light Angle, Shine, Creases, Sharpen, Refraction, Wave |
+| Senko Toon Flatten (new in 1.7) | Flat cartoon posterize: smooths the shading into a few flat steps with soft step lines and slightly washed colour, keeps the original ink lines, optional melt (0:02-0:03) | Smoothness, Steps, Step Softness, Lines, Keep Line Art, Saturation, Tint, Melt |
+| Senko Glow Key (new in 1.7) | Bright parts become a flat glowing key colour with ragged edges, the rest goes dark and tinted; Invert swaps them (0:03.5) | Threshold, Softness, Key Colour, Glow + Size, Darken Rest, Rest Tint, Ragged Edges, Invert |
+| Senko Target HUD (new in 1.7) | Lock-on markers: double ring with red dot, pink ring, capsule marker with linked circles, target circles, or a strip of icon cards. Pops in with overshoot, RGB split, jitter, wobble (0:04-0:08.5) | Style, Centre, Size, Angle, Pop (keyframe), Colours, Line Thickness, Dot Size, Cards, Jitter, Wobble, RGB Split, Re-roll Every, Glow, Blend (Over Clip, HUD Only) |
+| Senko Mosaic Patches (new in 1.7) | Random square patches round a spot (a face) turn into big pixels or slide out of place, re-rolling every few frames, with an optional scan streak (0:05.3) | Centre, Area Size, Patch Size, Pixel Size, Patches, Patch Shift, Re-roll Every, Scan Streak + colour |
+| Senko Swirl Lines (new in 1.7) | The picture is twisted round a point and redrawn as white contour lines on black with a spin blur, fading out away from the centre (0:05.8) | Centre, Twist, Twist Radius, Line Count, Line Width, Line Threshold, Spin Blur, Line / Background Colour, Fade Outside, Keep Picture |
+| Senko CRT Finish (new in 1.7) | "Played back on an old screen" pass: shadow-mask dot grid (or scanlines, or RGB stripes) over a darker, washed picture with colour bleed, softness, noise, flicker, vignette (0:19 to the end) | Screen Pattern, Pattern Size / Strength, Darken, Faded Blacks, Saturation, Colour Bleed, Softness, Noise, Flicker, Vignette |
 
 
-Tips: put Mosh on a precomp that holds both clips (it looks for the cut inside the layer). Smear and Mosh read other frames of the layer, so precompose first if the layer has time-remapping or effects you want smeared.
+Tips: Mosh Melt Cuts needs a precomp that holds both clips (it looks for the cut inside the layer). Mosh Whole Clip works on a single clip: it drops a keyframe every Mosh Length frames (Key Offset moves where) and smears the frozen picture with the motion of every frame after it. Smear and Mosh read other frames of the layer, so precompose first if the layer has time-remapping or effects you want smeared.
 
 ## Looks
 
@@ -53,7 +63,12 @@ Tips: put Mosh on a precomp that holds both clips (it looks for the cut inside t
 | ![Glitch Window](images/glitch-window.png) | ![Speed Burst](images/speed-burst.png) |
 | ![Prism Shards](images/prism-shards.png) | ![Light Leak](images/light-leak.png) |
 
-## What's new in 1.6.5
+## What's new in 1.7.0
+
+- Eight new effects matched frame by frame to an anime edit: Block Glitch, Chrome Relief, Toon Flatten, Glow Key, Target HUD, Mosaic Patches, Swirl Lines and CRT Finish, with 7 presets each.
+- Senko Mosh has a new Whole Clip mode: a regular datamosh on any clip, no cut needed (presets Whole Clip Mosh and Whole Clip Smear).
+
+## Earlier (1.6.5)
 
 - Output control at the bottom of every effect: Full Picture or Effect Only (see-through), for transitions.
 - Fixes the "checkout id" error when applying an effect (1.6.2).
