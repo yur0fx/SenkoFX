@@ -2,23 +2,32 @@
 
 29 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions and one-frame beat hits. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
 
+![New in 1.8.0: new controls in every effect](images/new-in-1.8.0.png)
+
 ![New in 1.7.0: each new effect next to the edit it was matched to](images/new-in-1.7.0.png)
 
 ![Senko FX effects](images/effect-only-all-21.png)
 
 ## Download
 
-Get **SenkoFX-Setup-1.7.1.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
+Get **SenkoFX-Setup-1.8.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
 
 1. Close After Effects.
-2. Unzip, run `SenkoFX-Setup-1.7.1.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
+2. Unzip, run `SenkoFX-Setup-1.8.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
 3. Open After Effects and look under **Effect > Senko FX**.
 
 Windows x64, any After Effects version that loads `Common\Plug-ins\7.0\MediaCore`. CPU only, so it runs on any GPU or none. 8, 16 and 32 bpc, multi-frame rendering.
 
 **Auto update:** from 1.7.1 on, Senko FX keeps itself up to date. A Windows scheduled task ("Senko FX Updater") checks this repo's latest release at logon and every 3 hours, and installs a newer version in the background while After Effects is closed. To turn it off, set the DWORD `AutoUpdate` to `0` under `HKLM\Software\Senko FX`, or disable the task in Task Scheduler.
 
-Manual install: copy the .aex files from `SenkoFX-plugins-1.7.1.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+Manual install: copy the .aex files from `SenkoFX-plugins-1.8.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+
+## New in 1.8.0
+
+- Every effect now has **Finish** (opacity, 12 blend modes, exposure, contrast, saturation, hue, tint, extra glow), **Limit Effect To** (circle, box, wipe, bright / dark parts, layer alpha) and **Timing** (animate on twos / threes / fours, strobe, flicker).
+- New controls inside all 29 effects: light rays, lens flares, bokeh balls, sparkles, film dust, beat pulses, new shapes and line styles, easing for Cut Kit, RGB split and row tears for Mosh, rainbow trails for Smear, and more.
+- Controls that do nothing in the current mode grey out.
+- Cleaner looks: no banding at 8 bpc, three-layer lens glow, deep blacks under Prism Flow and Kaleido colour.
 
 ## Effects
 
