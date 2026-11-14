@@ -1,6 +1,10 @@
 # Senko FX
 
-29 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions and one-frame beat hits. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+31 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions and one-frame beat hits. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+
+![New in 1.9.0: Senko Shake presets](images/new-in-1.9.0-shake.gif)
+
+![New in 1.9.0: Senko Seamless styles](images/new-in-1.9.0-seamless.png)
 
 ![New in 1.8.0: new controls in every effect](images/new-in-1.8.0.png)
 
@@ -10,17 +14,22 @@
 
 ## Download
 
-Get **SenkoFX-Setup-1.8.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
+Get **SenkoFX-Setup-1.9.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
 
 1. Close After Effects.
-2. Unzip, run `SenkoFX-Setup-1.8.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
+2. Unzip, run `SenkoFX-Setup-1.9.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
 3. Open After Effects and look under **Effect > Senko FX**.
 
 Windows x64, any After Effects version that loads `Common\Plug-ins\7.0\MediaCore`. CPU only, so it runs on any GPU or none. 8, 16 and 32 bpc, multi-frame rendering.
 
 **Auto update:** from 1.7.1 on, Senko FX keeps itself up to date. A Windows scheduled task ("Senko FX Updater") checks this repo's latest release at logon and every 3 hours, and installs a newer version in the background while After Effects is closed. To turn it off, set the DWORD `AutoUpdate` to `0` under `HKLM\Software\Senko FX`, or disable the task in Task Scheduler.
 
-Manual install: copy the .aex files from `SenkoFX-plugins-1.8.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+Manual install: copy the .aex files from `SenkoFX-plugins-1.9.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+
+## New in 1.9.0
+
+- **Senko Shake**: camera shake for edits. Constant shake, beat hits or both. Each hit kicks on the hit frame, springs back and dies off, with zoom punch and kick rotation. Real motion blur (adaptive, light on slow PCs), RGB split, Mirror / Wrap / Stretch / Transparent edges, Auto Zoom to hide edges. 11 presets (Impact Hit, Heavy Slam, Beat Thump, Earthquake, Handheld, Rumble, Jitter, Vertical Bounce, Drunk Sway, Chroma Smash, Spin Kick).
+- **Senko Seamless**: seamless transitions. Put it on an adjustment layer over the cut and pick a preset; it times itself to the layer. Zoom In/Out, Spin, Zoom Spin, Slide, Whip Pan, Warp Zoom, Twist, Stretch, Roll 3D, with speed curve, settle bounce, motion blur, flash on cut and impact shake. 19 presets.
 
 ## New in 1.8.0
 
@@ -58,6 +67,8 @@ Manual install: copy the .aex files from `SenkoFX-plugins-1.8.0.zip` to `C:\Prog
 | Senko Chrome Relief (new in 1.7) | The picture turns into embossed chrome: brightness becomes height, lit with shine, dark creases and a sharpened edge, optional sideways wave (0:00.3-0:01) | Depth, Relief Size, Light Angle, Shine, Creases, Sharpen, Refraction, Wave |
 | Senko Toon Flatten (new in 1.7) | Flat cartoon posterize: smooths the shading into a few flat steps with soft step lines and slightly washed colour, keeps the original ink lines, optional melt (0:02-0:03) | Smoothness, Steps, Step Softness, Lines, Keep Line Art, Saturation, Tint, Melt |
 | Senko Glow Key (new in 1.7) | Bright parts become a flat glowing key colour with ragged edges, the rest goes dark and tinted; Invert swaps them (0:03.5) | Threshold, Softness, Key Colour, Glow + Size, Darken Rest, Rest Tint, Ragged Edges, Invert |
+| Senko Shake (new in 1.9) | Camera shake: smooth layered shake plus beat hits that kick, spring back and decay, with real motion blur and no black edges | Mode (Constant, Hits Only, Hits + Shake), Intensity, Amplitude X/Y, Rotation, Zoom Shake, Frequency, Roughness, Direction + Bias, Hit Every, First Hit, Decay, Kick, Bounce, Zoom Punch, Motion Blur + Shutter Angle, RGB Split, Edge Mode, Auto Zoom |
+| Senko Seamless (new in 1.9) | Seamless transitions on an adjustment layer over the cut, timed to the layer automatically | Style (Zoom In/Out, Spin, Zoom Spin, Slide, Whip Pan, Warp Zoom, Twist, Stretch, Roll 3D), Amount, Direction, Speed Curve, Settle Bounce, Motion Blur, Edges, Flash On Cut, Impact Shake |
 | Senko Target HUD (new in 1.7) | Lock-on markers: double ring with red dot, pink ring, capsule marker with linked circles, target circles, or a strip of icon cards. Pops in with overshoot, RGB split, jitter, wobble (0:04-0:08.5) | Style, Centre, Size, Angle, Pop (keyframe), Colours, Line Thickness, Dot Size, Cards, Jitter, Wobble, RGB Split, Re-roll Every, Glow, Blend (Over Clip, HUD Only) |
 | Senko Mosaic Patches (new in 1.7) | Random square patches round a spot (a face) turn into big pixels or slide out of place, re-rolling every few frames, with an optional scan streak (0:05.3) | Centre, Area Size, Patch Size, Pixel Size, Patches, Patch Shift, Re-roll Every, Scan Streak + colour |
 | Senko Swirl Lines (new in 1.7) | The picture is twisted round a point and redrawn as white contour lines on black with a spin blur, fading out away from the centre (0:05.8) | Centre, Twist, Twist Radius, Line Count, Line Width, Line Threshold, Spin Blur, Line / Background Colour, Fade Outside, Keep Picture |
