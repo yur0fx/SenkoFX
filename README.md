@@ -2,8 +2,6 @@
 
 31 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions and one-frame beat hits. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
 
-![New in 1.10.0: Best vs Draft quality preview](images/new-in-1.10.0.png)
-
 ![New in 1.9.0: Senko Shake presets](images/new-in-1.9.0-shake.gif)
 
 ![New in 1.9.0: Senko Seamless styles](images/new-in-1.9.0-seamless.png)
@@ -16,22 +14,22 @@
 
 ## Download
 
-Get **SenkoFX-Setup-1.10.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
+Get **SenkoFX-Setup-1.10.1.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
 
 1. Close After Effects.
-2. Unzip, run `SenkoFX-Setup-1.10.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
+2. Unzip, run `SenkoFX-Setup-1.10.1.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
 3. Open After Effects and look under **Effect > Senko FX**.
 
 Windows x64, any After Effects version that loads `Common\Plug-ins\7.0\MediaCore`. CPU only, so it runs on any GPU or none. 8, 16 and 32 bpc, multi-frame rendering.
 
 **Auto update:** from 1.7.1 on, Senko FX keeps itself up to date. A Windows scheduled task ("Senko FX Updater") checks this repo's latest release at logon and every 3 hours, and installs a newer version in the background while After Effects is closed. To turn it off, set the DWORD `AutoUpdate` to `0` under `HKLM\Software\Senko FX`, or disable the task in Task Scheduler.
 
-Manual install: copy the .aex files from `SenkoFX-plugins-1.10.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+Manual install: copy the .aex files from `SenkoFX-plugins-1.10.1.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
 
-## New in 1.10.0
+## New in 1.10.1
 
-- **Faster previews.** All 31 effects render faster at Best quality (one shared worker-thread pool that plays nicely with After Effects multi-frame rendering, faster sampling, blurs and mirror edges, smarter motion-blur sampling). Seamless, Lens Tunnel and Radial Burst are about 1.5-1.9x faster.
-- **Draft quality = near-instant preview.** Set the layer's Quality switch to Draft while you work and the effect renders at half size and scales up, about 3-6x faster. Choose Half / Quarter / Full in the new **Preview Speed** group of every effect. Best quality and the Render Queue are untouched, so final renders look the same as 1.9.0.
+- **Every effect is faster, same look, no extra settings.** All whole-frame passes now use every CPU core, one shared worker pool fits After Effects multi-frame rendering, and sampling, blurs, glows and noise are quicker. Seamless, Radial Burst, Lens Tunnel, Prism Shards, Swirl Lines and Shake are about 1.5-1.9x faster, most others 1.1-1.5x. Every preset was checked pixel by pixel against 1.9.0.
+- The 1.10.0 Draft "Preview Speed" option is gone: no Best/Fast switch, it is just faster.
 
 ## New in 1.9.0
 
