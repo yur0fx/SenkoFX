@@ -1,45 +1,45 @@
-## Senko FX 1.10.0: faster previews
+## Senko FX 1.10.1: faster, no extra settings
 
-All 31 effects render faster, and a new Draft path makes previews near-instant. Final renders look the same as 1.9.0.
+Every effect is just faster now. No Best/Fast switch: the 1.10.0 "Preview Speed" Draft option is gone (hidden, so projects saved with 1.10.0 still open).
 
-- **Faster at Best quality**: one shared pool of worker threads instead of new threads for every pass (After Effects renders several frames at once, so 1.9.0 could start dozens of threads per frame), faster pixel sampling, blurs and mirror edges, and smarter motion-blur sampling in Seamless, Radial Burst, Lens Tunnel, Swirl Lines and Shake (fewer samples where the picture barely moves). Seamless, Lens Tunnel and Radial Burst are about 1.5-1.9x faster.
-- **Draft quality = fast preview**: set the layer's Quality switch to Draft (or use Fast Draft) and the effect renders at half size and scales up, about 3-6x faster. New control in every effect: **Preview Speed > Draft Quality Renders At** (Half Size / Quarter Size / Full Size). Best quality and the Render Queue (Best by default) are never affected.
-- Same look: every preset of every effect was rendered at 1920x1080 with 1.9.0 and 1.10.0 and compared pixel by pixel. Most are identical; the rest differ by less than 1/255 on all but a handful of pixels (PSNR 62 dB or better).
+- All whole-frame passes now run on every CPU core (48 passes ran on one core before), one shared worker pool that fits After Effects multi-frame rendering, faster pixel sampling, blurs, glows, noise and mirror edges.
+- Smarter motion-blur sampling in Seamless, Radial Burst, Lens Tunnel, Swirl Lines and Shake (fewer samples where the picture barely moves). Prism Shards remembers its shard layout per area instead of rebuilding it per pixel.
+- Same look: every preset of every effect was rendered at 1920x1080 with 1.9.0 and 1.10.1 and compared pixel by pixel. Most are identical; the rest differ by less than 1/255 on all but a handful of pixels (PSNR 62 dB or better).
 
-Per frame, 1920x1080, average over all presets, 4-core CPU (offline bench of the effect code):
+Per frame, 1920x1080, average over all presets, 4-core CPU (offline bench of the effect code; in After Effects the shared thread pool should help more when several frames render at once):
 
-| Effect | 1.9.0 Best | 1.10.0 Best | 1.10.0 Draft |
+| Effect | 1.9.0 | 1.10.1 | Faster |
 |---|---:|---:|---:|
-| Senko Seamless | 1466 ms | 846 ms | 237 ms |
-| Senko Lens Tunnel | 615 ms | 319 ms | 87 ms |
-| Senko Radial Burst | 572 ms | 391 ms | 82 ms |
-| Senko Mosh | 504 ms | 464 ms | 269 ms |
-| Senko Prism Shards | 414 ms | 375 ms | 105 ms |
-| Senko Swirl Lines | 384 ms | 281 ms | 79 ms |
-| Senko Liquid Chrome | 347 ms | 327 ms | 97 ms |
-| Senko Dream Focus | 345 ms | 248 ms | 61 ms |
-| Senko Speed Burst | 325 ms | 253 ms | 74 ms |
-| Senko Prism Flow | 282 ms | 236 ms | 70 ms |
-| Senko Rainbow Lines | 271 ms | 272 ms | 75 ms |
-| Senko Kaleido | 260 ms | 237 ms | 75 ms |
-| Senko Rainbow Wave | 235 ms | 210 ms | 57 ms |
-| Senko Smear | 220 ms | 203 ms | 153 ms |
-| Senko Spectrum Echo | 215 ms | 185 ms | 46 ms |
-| Senko Neon Grade | 177 ms | 181 ms | 63 ms |
-| Senko Toon Flatten | 170 ms | 178 ms | 69 ms |
-| Senko CRT Finish | 165 ms | 157 ms | 50 ms |
-| Senko Pixel Dust | 154 ms | 152 ms | 57 ms |
-| Senko One Framer | 149 ms | 128 ms | 38 ms |
-| Senko Glitch Window | 144 ms | 122 ms | 39 ms |
-| Senko Tile Shift | 126 ms | 111 ms | 42 ms |
-| Senko Shake | 121 ms | 80 ms | 33 ms |
-| Senko Chrome Relief | 112 ms | 100 ms | 39 ms |
-| Senko Light Leak | 96 ms | 110 ms | 40 ms |
-| Senko Frame Box | 88 ms | 83 ms | 27 ms |
-| Senko Target HUD | 75 ms | 70 ms | 39 ms |
-| Senko Glow Key | 68 ms | 59 ms | 29 ms |
-| Senko Mosaic Patches | 28 ms | 32 ms | 23 ms |
-| Senko Block Glitch | 27 ms | 27 ms | 25 ms |
-| Senko Cut Kit | 8 ms | 9 ms | 15 ms |
+| Senko Seamless | 1475 ms | 969 ms | 1.5x |
+| Senko Radial Burst | 559 ms | 330 ms | 1.7x |
+| Senko Lens Tunnel | 554 ms | 298 ms | 1.9x |
+| Senko Mosh | 510 ms | 426 ms | 1.2x |
+| Senko Prism Shards | 422 ms | 245 ms | 1.7x |
+| Senko Liquid Chrome | 365 ms | 286 ms | 1.3x |
+| Senko Swirl Lines | 349 ms | 208 ms | 1.7x |
+| Senko Speed Burst | 341 ms | 239 ms | 1.4x |
+| Senko Dream Focus | 328 ms | 228 ms | 1.4x |
+| Senko Prism Flow | 285 ms | 195 ms | 1.5x |
+| Senko Rainbow Lines | 280 ms | 260 ms | 1.1x |
+| Senko Kaleido | 271 ms | 215 ms | 1.3x |
+| Senko Smear | ~ same | ~ same | 1.0-1.1x |
+| Senko Spectrum Echo | 223 ms | 156 ms | 1.4x |
+| Senko Rainbow Wave | 208 ms | 174 ms | 1.2x |
+| Senko Neon Grade | 173 ms | 142 ms | 1.2x |
+| Senko CRT Finish | 159 ms | 117 ms | 1.4x |
+| Senko Pixel Dust | 158 ms | 140 ms | 1.1x |
+| Senko One Framer | 152 ms | 123 ms | 1.2x |
+| Senko Toon Flatten | ~ same | ~ same | 1.0-1.1x |
+| Senko Shake | 139 ms | 78 ms | 1.8x |
+| Senko Glitch Window | 123 ms | 91 ms | 1.3x |
+| Senko Tile Shift | 114 ms | 94 ms | 1.2x |
+| Senko Chrome Relief | 109 ms | 87 ms | 1.3x |
+| Senko Light Leak | ~ same | ~ same | 1.0-1.1x |
+| Senko Target HUD | 72 ms | 50 ms | 1.4x |
+| Senko Frame Box | 68 ms | 62 ms | 1.1x |
+| Senko Glow Key | 62 ms | 58 ms | 1.1x |
+| Senko Mosaic Patches | 26 ms | 24 ms | 1.1x |
+| Senko Block Glitch | 23 ms | 20 ms | 1.2x |
+| Senko Cut Kit | 13 ms | 12 ms | 1.1x |
 
-Install: close After Effects, unzip **SenkoFX-Setup-1.10.0.zip**, run the Setup. Senko FX 1.7.1 and later update themselves.
+Install: close After Effects, unzip **SenkoFX-Setup-1.10.1.zip**, run the Setup. Senko FX 1.7.1 and later update themselves.
