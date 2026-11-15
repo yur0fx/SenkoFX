@@ -1,6 +1,8 @@
 # Senko FX
 
-31 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions and one-frame beat hits. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+39 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions, one-frame beat hits and compositing (light wrap, edge blend, colour match, shadows, rim light, fog, keying, grain). Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+
+![New in 1.11.0: compositing effects, before and after](images/new-in-1.11.0.png)
 
 ![New in 1.9.0: Senko Shake presets](images/new-in-1.9.0-shake.gif)
 
@@ -14,17 +16,23 @@
 
 ## Download
 
-Get **SenkoFX-Setup-1.10.1.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
+Get **SenkoFX-Setup-1.11.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
 
 1. Close After Effects.
-2. Unzip, run `SenkoFX-Setup-1.10.1.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
+2. Unzip, run `SenkoFX-Setup-1.11.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
 3. Open After Effects and look under **Effect > Senko FX**.
 
 Windows x64, any After Effects version that loads `Common\Plug-ins\7.0\MediaCore`. CPU only, so it runs on any GPU or none. 8, 16 and 32 bpc, multi-frame rendering.
 
 **Auto update:** from 1.7.1 on, Senko FX keeps itself up to date. A Windows scheduled task ("Senko FX Updater") checks this repo's latest release at logon and every 3 hours, and installs a newer version in the background while After Effects is closed. To turn it off, set the DWORD `AutoUpdate` to `0` under `HKLM\Software\Senko FX`, or disable the task in Task Scheduler.
 
-Manual install: copy the .aex files from `SenkoFX-plugins-1.10.1.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+Manual install: copy the .aex files from `SenkoFX-plugins-1.11.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+
+## New in 1.11.0
+
+- **8 compositing effects** for putting cut-outs, keyed clips and stock into a shot: **Light Wrap**, **Edge Blend**, **Colour Match**, **Shadow**, **Rim Light**, **Depth Fog**, **Key Clean**, **Grain Match**.
+- Most have a **Background Layer** picker (Depth Fog: Depth Layer). Pick the layer behind and the effect takes its light, colour and grain from it. Same size layers line up pixel for pixel, other sizes stretch to fit. No layer picked still works.
+- Fast by default, no quality setting (20-130 ms per 1080p frame on a 4-core CPU).
 
 ## New in 1.10.1
 
@@ -79,6 +87,14 @@ Manual install: copy the .aex files from `SenkoFX-plugins-1.10.1.zip` to `C:\Pro
 | Senko Swirl Lines (new in 1.7) | The picture is twisted round a point and redrawn as white contour lines on black with a spin blur, fading out away from the centre (0:05.8) | Centre, Twist, Twist Radius, Line Count, Line Width, Line Threshold, Spin Blur, Line / Background Colour, Fade Outside, Keep Picture |
 | Senko CRT Finish (new in 1.7) | "Played back on an old screen" pass: shadow-mask dot grid (or scanlines, or RGB stripes) over a darker, washed picture with colour bleed, softness, noise, flicker, vignette (0:19 to the end) | Screen Pattern, Pattern Size / Strength, Darken, Faded Blacks, Saturation, Colour Bleed, Softness, Noise, Flicker, Vignette |
 
+| Senko Light Wrap (new in 1.11) | Background light spills over the layer's edges so a cut-out sits in the shot | Background Layer, Wrap Width, Intensity, Light Spread, Blend (Screen, Add, Normal, Soft Light, Wrap Only), Light From, Bright Parts Only, Light Saturation, Reach Inside |
+| Senko Edge Blend (new in 1.11) | Cleans the cut-out edge: choke / grow, feather, decontaminate edge colour, kill halos and green / blue spill, lean the edge toward the background | Background Layer, Choke, Feather, Edge Width, Edge Colour From, Fringe Fix (Dark, Light, Green Spill, Blue Spill), Background Light On Edge, View |
+| Senko Colour Match (new in 1.11) | Matches colour, brightness, contrast and black / white points to the background layer (or a target colour) | Background Layer, Amount, Match (Colour And Light, Colour Only, Light Only), Contrast Match, Black And White Points, Look At, Saturation, Protect Skin And Whites |
+| Senko Shadow (new in 1.11) | Drop, contact and cast-on-ground shadows; cast shadows soften and fade with height, colour can take the background's hue | Background Layer, Type, Direction, Distance, Softness, Opacity, Tint From Background, Contact Size / Strength, Ground Line, Cast Length / Lean, Blend (Behind Layer, Shadow Only) |
+| Senko Rim Light (new in 1.11) | Anime rim light on the edge from a light direction, coloured by a colour or the background | Background Layer, Light Direction, Width, Softness, Intensity, Colour From, Wrap Around, Blend (Add, Screen, Normal, Rim Only), Outer Glow, Hard Cel Edge |
+| Senko Depth Fog (new in 1.11) | Fog / haze thickening with distance, from height, brightness, a point or a depth layer, with drifting mist | Depth Layer, Depth From, Fog Start / End, Density, Fog Colour, Colour From (Sky, Picture Average), Haze Blur, Mist, Drift, Lift Shadows, View |
+| Senko Key Clean (new in 1.11) | Green / blue / any-colour screen key with spill kill in one effect | Background Layer, Screen, Key Strength, Balance, Clip Black / White, Choke, Soft Edge, Spill Kill, Spill Becomes, View (Result, Matte, Over Background) |
+| Senko Grain Match (new in 1.11) | Film / anime grain that can measure the background's noise and match it | Background Layer, Match Background Grain, Amount, Grain Size, Softness, Colour Grain, Grain In, Animate (Every Frame, On 2s, On 3s, Still), Seed |
 
 Tips: Mosh Melt Cuts needs a precomp that holds both clips (it looks for the cut inside the layer). Mosh Whole Clip works on a single clip: it drops a keyframe every Mosh Length frames (Key Offset moves where) and smears the frozen picture with the motion of every frame after it. Smear and Mosh read other frames of the layer, so precompose first if the layer has time-remapping or effects you want smeared.
 
