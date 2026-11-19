@@ -1,6 +1,10 @@
 # Senko FX
 
-39 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions, one-frame beat hits and compositing (light wrap, edge blend, colour match, shadows, rim light, fog, keying, grain). Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+40 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions, one-frame beat hits, compositing (light wrap, edge blend, colour match, shadows, rim light, fog, keying, grain) and Senko Fractal Noise, a better Fractal Noise with 28 presets. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+
+![New in 1.12.0: Senko Fractal Noise presets, animated](images/new-in-1.12.0-fractal.gif)
+
+![New in 1.12.0: all 28 Senko Fractal Noise presets](images/new-in-1.12.0-fractal-presets.png)
 
 ![New in 1.11.0: compositing effects, before and after](images/new-in-1.11.0.png)
 
@@ -16,17 +20,26 @@
 
 ## Download
 
-Get **SenkoFX-Setup-1.11.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
+Get **SenkoFX-Setup-1.12.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
 
 1. Close After Effects.
-2. Unzip, run `SenkoFX-Setup-1.11.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
+2. Unzip, run `SenkoFX-Setup-1.12.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
 3. Open After Effects and look under **Effect > Senko FX**.
 
 Windows x64, any After Effects version that loads `Common\Plug-ins\7.0\MediaCore`. CPU only, so it runs on any GPU or none. 8, 16 and 32 bpc, multi-frame rendering.
 
 **Auto update:** from 1.7.1 on, Senko FX keeps itself up to date. A Windows scheduled task ("Senko FX Updater") checks this repo's latest release at logon and every 3 hours, and installs a newer version in the background while After Effects is closed. To turn it off, set the DWORD `AutoUpdate` to `0` under `HKLM\Software\Senko FX`, or disable the task in Task Scheduler.
 
-Manual install: copy the .aex files from `SenkoFX-plugins-1.11.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+Manual install: copy the .aex files from `SenkoFX-plugins-1.12.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+
+## New in 1.12.0
+
+- **Senko Fractal Noise**: a better Fractal Noise, made for edits. 28 presets: Classic (AE look), Anime Smoke, Soft Clouds, Storm Clouds, Anime Fire, Inferno, Blue Flame, Energy Aura, Lightning Veins, Power Up Vortex, Speed Tunnel, Aurora Sky, Magic Mist, Fog Overlay, Water Caustics, Glitch Blocks, Rainbow Glitch, TV Static, Heat Haze, Dream Wobble, Noise Dissolve, Lava, Toxic Slime, Cosmic Nebula, Psychedelic Marble, Ink Bleed, Stained Glass, Plasma Ball.
+- More than AE's: 7 noise types (Smooth, Soft Linear, Block, Cells, Crackle, Stained Glass, Plasma) x 7 fractal types (Basic, Turbulent Smooth / Sharp, Ridged energy veins, Billow clouds, Rocky, Max), every pair levelled so it looks right at Contrast 100.
+- Warp (Smooth, Swirl smoke, Marble), Polar swirl and Tunnel mapping with Spin, Drift with faster sub layers (parallax flames), Auto Evolve (animates with no keyframes) and Cycle Evolution for perfect loops.
+- Shapes: Rising Flames, Falling, Centre Glow, Ring, Edges, bands. Anime Look: Cel Bands with anti-aliased Ink Outline, 3D Shading. 20 colour looks (Fire, Blue Flame, Electric Blue, Purple Energy, Neon Pink, Toxic, Aurora, Rainbow, Lava, Nebula ...) or your own 2 / 3 colours, with Gradient Shift / Repeat / Colour Cycle.
+- Output: see-through alpha from the noise, blend over the layer (Over, Add, Screen, Multiply, Overlay, Soft Light, Colour Dodge), Displace Layer (heat haze, glitch tears), Layer Matte (noise dissolves), Inside Layer. Extras: Embers, Sparkles.
+- Fast by default, no quality setting: 4-wide SSE2 noise, big soft octaves worked out on coarse grids, octaves smaller than a pixel fade out instead of flickering. 40-130 ms per 1080p frame on a 4-core CPU (offline bench).
 
 ## New in 1.11.0
 
@@ -94,6 +107,7 @@ Manual install: copy the .aex files from `SenkoFX-plugins-1.11.0.zip` to `C:\Pro
 | Senko Rim Light (new in 1.11) | Anime rim light on the edge from a light direction, coloured by a colour or the background | Background Layer, Light Direction, Width, Softness, Intensity, Colour From, Wrap Around, Blend (Add, Screen, Normal, Rim Only), Outer Glow, Hard Cel Edge |
 | Senko Depth Fog (new in 1.11) | Fog / haze thickening with distance, from height, brightness, a point or a depth layer, with drifting mist | Depth Layer, Depth From, Fog Start / End, Density, Fog Colour, Colour From (Sky, Picture Average), Haze Blur, Mist, Drift, Lift Shadows, View |
 | Senko Key Clean (new in 1.11) | Green / blue / any-colour screen key with spill kill in one effect | Background Layer, Screen, Key Strength, Balance, Clip Black / White, Choke, Soft Edge, Spill Kill, Spill Becomes, View (Result, Matte, Over Background) |
+| Senko Fractal Noise (new in 1.12) | A better Fractal Noise: smoke, clouds, fire, energy, lightning, glitch, lava, caustics and more, with anime cel bands and ink outline | Preset (28), Noise Type, Fractal Type, Contrast, Brightness, Overflow, Transform (Scale, Drift, Mapping, Spin), Complexity, Evolution (Auto Evolve, Cycle), Warp, Shape, Anime Look (Cel Bands, Ink Outline, 3D Shading), Colours, Output (Alpha, Blend, Displace), Embers, Sparkles |
 | Senko Grain Match (new in 1.11) | Film / anime grain that can measure the background's noise and match it | Background Layer, Match Background Grain, Amount, Grain Size, Softness, Colour Grain, Grain In, Animate (Every Frame, On 2s, On 3s, Still), Seed |
 
 Tips: Mosh Melt Cuts needs a precomp that holds both clips (it looks for the cut inside the layer). Mosh Whole Clip works on a single clip: it drops a keyframe every Mosh Length frames (Key Offset moves where) and smears the frozen picture with the motion of every frame after it. Smear and Mosh read other frames of the layer, so precompose first if the layer has time-remapping or effects you want smeared.
