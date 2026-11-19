@@ -1,6 +1,10 @@
 # Senko FX
 
-40 native After Effects effects for edits: trippy colour, glitch, datamosh, smears, transitions, one-frame beat hits, compositing (light wrap, edge blend, colour match, shadows, rim light, fog, keying, grain) and Senko Fractal Noise, a better Fractal Noise with 28 presets. Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+46 native After Effects effects for edits: trippy colour, glitch, datamosh, pixel sort, smears, transitions, one-frame beat hits, compositing (light wrap, edge blend, colour match, shadows, rim light, fog, keying, grain), Senko Fractal Noise (a better Fractal Noise with 28 presets) and abstract shape effects (Shape Tunnel, Pattern, Mandala, Morph, Burst). Every effect has a Preset menu and an Output switch (Full Picture or Effect Only, see-through for transitions).
+
+![New in 1.13.0: abstract shape effects, animated](images/new-in-1.13.0-shapes.gif)
+
+![New in 1.13.0: all shape effect presets](images/new-in-1.13.0-shapes-presets.png)
 
 ![New in 1.12.0: Senko Fractal Noise presets, animated](images/new-in-1.12.0-fractal.gif)
 
@@ -20,17 +24,28 @@
 
 ## Download
 
-Get **SenkoFX-Setup-1.12.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
+Get **SenkoFX-Setup-1.13.0.zip** from the [latest release](https://github.com/yur0fx/SenkoFX/releases/latest).
 
 1. Close After Effects.
-2. Unzip, run `SenkoFX-Setup-1.12.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
+2. Unzip, run `SenkoFX-Setup-1.13.0.exe` (asks for admin because Adobe's shared plug-in folder is in Program Files).
 3. Open After Effects and look under **Effect > Senko FX**.
 
 Windows x64, any After Effects version that loads `Common\Plug-ins\7.0\MediaCore`. CPU only, so it runs on any GPU or none. 8, 16 and 32 bpc, multi-frame rendering.
 
 **Auto update:** from 1.7.1 on, Senko FX keeps itself up to date. A Windows scheduled task ("Senko FX Updater") checks this repo's latest release at logon and every 3 hours, and installs a newer version in the background while After Effects is closed. To turn it off, set the DWORD `AutoUpdate` to `0` under `HKLM\Software\Senko FX`, or disable the task in Task Scheduler.
 
-Manual install: copy the .aex files from `SenkoFX-plugins-1.12.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+Manual install: copy the .aex files from `SenkoFX-plugins-1.13.0.zip` to `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Senko FX`.
+
+## New in 1.13.0
+
+- **Senko Shape Tunnel**: an endless tunnel of nested shapes zooming at you. Circle, triangle, square, diamond, pentagon, hexagon, octagon, star, 4-point star, cross, heart, flower, or a morph between two. Solid bands, lines, bands + lines, glow lines or checker; twist, spin, wide stretch, wobble, beat punch, depth fade and a see-through centre. 13 presets (Hex Warp Drive, Neon Triangles, Star Spiral, Square Hypno, Heart Tunnel, Flower Bloom, Rainbow Circles, Checker Vortex, Morphing Portal, Beat Diamonds, Wide Speed Tunnel, Portal Window, Fire Ring Flow).
+- **Senko Shape Pattern**: a moving wallpaper of shapes on a square, hex, brick or diamond grid. Ripple, sweep, twinkle, spiral or beat waves grow, shrink and turn them; every other shape can differ, neighbours spin opposite, the grid scrolls; Memphis hard shadows; colour by checker, rows, columns, diagonal, random, wave or distance; own background. 12 presets.
+- **Senko Shape Mandala**: rings of shapes around a centre, kaleidoscope style. Shapes per ring, more per ring, a different shape each ring, rings turn opposite, shapes point outward, breathe, beat punch, centre shape, guide circles and spokes. 11 presets.
+- **Senko Shape Morph**: one big shape morphing A > B > C on a timer (or by hand), with echo copies trailing behind (delay, size step, turn step), outline / glow line / filled styles, draw-on and moving dashes, copies around the centre, liquid wobble and beat punch. 10 presets.
+- **Senko Shape Burst**: shapes for MMV and motion backgrounds: burst on beat, float, rain, rise, orbit, pulse grid, confetti pop; filled or outlined, Memphis shadows, trails, glow. 13 presets.
+- **Senko Pixel Sort**: glitch-art pixel sorting at any angle. Runs from bright parts, dark parts, a range, edges, random or whole lines; sort by brightness, hue, saturation or a channel; Sort, Smear, Stretch or Shuffle; animate Sort Amount for a growing reveal; re-roll, colour split, glow. 12 presets.
+- All shape effects have palettes (Memphis, Neon, Pastel, Fire, Ice, Sunset, White, Black & White, Picture, Two Colours, Rainbow), glow and Blend: Shapes Only (see-through), Over Layer, Add, Screen, Behind Layer.
+- Fast by default, no quality setting: about 30-140 ms per 1080p frame on a 4-core CPU (offline bench). Glow is quicker in every effect that has it (same look, checked pixel for pixel).
 
 ## New in 1.12.0
 

@@ -1,4 +1,4 @@
-name: publish-1.12.0
+name: publish-1.13.0
 on:
   push:
     branches: [claude/project-thread-knmwim]
@@ -19,35 +19,35 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
           cp README.md /tmp/README.md
-          cp images/new-in-1.12.0-fractal.gif /tmp/a.gif
-          cp images/new-in-1.12.0-fractal-presets.png /tmp/b.png
+          cp images/new-in-1.13.0-shapes.gif /tmp/a.gif
+          cp images/new-in-1.13.0-shapes-presets.png /tmp/b.png
           git fetch origin main && git checkout -B main origin/main
           cp /tmp/README.md README.md
-          cp /tmp/a.gif images/new-in-1.12.0-fractal.gif
-          cp /tmp/b.png images/new-in-1.12.0-fractal-presets.png
-          git add README.md images/new-in-1.12.0-fractal.gif images/new-in-1.12.0-fractal-presets.png
-          git diff --cached --quiet || git commit -m "Senko FX 1.12.0: README"
+          cp /tmp/a.gif images/new-in-1.13.0-shapes.gif
+          cp /tmp/b.png images/new-in-1.13.0-shapes-presets.png
+          git add README.md images/new-in-1.13.0-shapes.gif images/new-in-1.13.0-shapes-presets.png
+          git diff --cached --quiet || git commit -m "Senko FX 1.13.0: README"
           git push origin main
-      - name: Create or update v1.12.0
+      - name: Create or update v1.13.0
         run: |
           git checkout -q ${{ github.sha }}
-          if gh release view v1.12.0 >/dev/null 2>&1; then
-            gh release edit v1.12.0 --notes-file notes.md --title "Senko FX 1.12.0" --latest
+          if gh release view v1.13.0 >/dev/null 2>&1; then
+            gh release edit v1.13.0 --notes-file notes.md --title "Senko FX 1.13.0" --latest
           else
-            gh release create v1.12.0 --target main --title "Senko FX 1.12.0" --notes-file notes.md --latest
+            gh release create v1.13.0 --target main --title "Senko FX 1.13.0" --notes-file notes.md --latest
           fi
-          gh release upload v1.12.0 assets/SenkoFX-Setup-1.12.0.zip assets/SenkoFX-plugins-1.12.0.zip assets/senkofx-latest.json --clobber
-      - name: Banner on 1.11.0
+          gh release upload v1.13.0 assets/SenkoFX-Setup-1.13.0.zip assets/SenkoFX-plugins-1.13.0.zip assets/senkofx-latest.json --clobber
+      - name: Banner on 1.12.0
         run: |
-          gh release view v1.11.0 --json body -q .body > old.md
+          gh release view v1.12.0 --json body -q .body > old.md
           if ! grep -q "newer version" old.md; then
-            { echo '> **A newer version is out:** [Senko FX 1.12.0](https://github.com/yur0fx/SenkoFX/releases/latest). Senko FX 1.7.1 and later update themselves.'; echo; cat old.md; } > new.md
-            gh release edit v1.11.0 --notes-file new.md
+            { echo '> **A newer version is out:** [Senko FX 1.13.0](https://github.com/yur0fx/SenkoFX/releases/latest). Senko FX 1.7.1 and later update themselves.'; echo; cat old.md; } > new.md
+            gh release edit v1.12.0 --notes-file new.md
           fi
       - name: Verify downloads
         run: |
           sleep 10
-          for f in SenkoFX-Setup-1.12.0.zip SenkoFX-plugins-1.12.0.zip senkofx-latest.json; do
+          for f in SenkoFX-Setup-1.13.0.zip SenkoFX-plugins-1.13.0.zip senkofx-latest.json; do
             for i in 1 2 3 4 5; do curl -fsSL -o dl_$f "https://github.com/${GH_REPO}/releases/latest/download/$f" && break; sleep 15; done
             cmp dl_$f assets/$f && echo "OK $f"
           done
